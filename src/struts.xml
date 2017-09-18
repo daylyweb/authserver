@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	 <!-- 处理乱码 -->
+	 <constant name="struts.i18n.encoding" value="UTF-8"/>
+	 <!-- 指定Action请求后缀 -->
+	 <constant name="struts.action.extension" value="action,,html"/>
+	 <!-- 设置浏览器缓存  开发的时候禁止 ， 上线之后要开启 -->
+	 <constant name="struts.static.browserCache" value="false"/>
+	 <!-- XML配置文件修改之后 , 自动重新加载 -->
+	 <constant name="struts.configuration.xml.reload" value="true"/>
+	 <!-- 显示更详细的错误信息 ， 开发模式 -->
+	 <constant name="struts.devMode" value="true"/>
+	 <package name="default" extends="struts-default" namespace="/">
+	 		<action name="login" class="action.Api" method="login">
+	 			<result name="index">/login.jsp</result>
+	 		</action>
+	 		<action name="regist" class="action.Api" method="regist">
+	 			<result name="index">/regist.jsp</result>
+	 			<result name="success">/registsus.html</result>
+	 			<result name="error">/registserr.html</result>
+	 		</action>
+	 		<action name="auth" class="action.Api" method="auth"></action>
+	 		<action name="ping" class="action.Api" method="ping"></action>
+	 		<action name="portal" class="action.Api" method="portal">
+	 			<result name="success">/loginsus.html</result>
+	 			<result name="error">/loginerr.html</result>
+	 		</action>
+	 		<action name="msg" class="action.Api" method="msg">
+	 			<result name="success">/loginsus.html</result>
+	 			<result name="denied">/autherr.html</result>
+	 		</action>
+	 </package>
+</struts>    
