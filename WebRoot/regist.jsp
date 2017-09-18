@@ -4,54 +4,135 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html>
-<html style="font-size:15px;">
-	<head>
-		<title>小只WEB-用户注册</title> 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-		<meta http-equiv="Pragma" content="no-cache"> 
-		<meta http-equiv="Cache-Control" content="no-cache"> 
-		<meta http-equiv="Expires" content="0"> 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<link rel="stylesheet" href="css/regist/style.css" />
-		<style type="text/css">
-			@media screen and (orientation : landscape ){
-				.login{
-					margin-top:2%;
-				}
-			}
-		
-		</style>
-	</head> 
-	<body> 
-<!-- 		<div style="width:70%;height:100%;float:left;">
-			<div style="width:100%;float:left;">
-				<div style="float:left;color:rgba(1, 45, 49, 0.44);font-size:56px;margin-top:20%;margin-left:10%;">青，取之于蓝而青于蓝。</div>
-				<div style="float:right;color:rgba(1, 45, 49, 0.44);font-size:56px;margin-top:10%;margin-right:10%;">冰，水为之而寒于水。</div>
-			</div>
-		</div> -->
-
-		<!-- <div style="width:30%;height:100%;margin:0 auto;"> -->
-				<div class="login">
-				    <div class="message">小只路由WEB验证系统-注册</div>
-				    <hr class="hr14"></hr>
-				    <form action="regist" method="post" autocomplete="on">
-						<input name="username" placeholder="用户名/邮箱" required="required" type="text" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"/>
-						<hr class="hr14">
-					    <input name="password" placeholder="密码" required="required" type="password" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"/>
-						<hr class="hr14">
-						<input value="注册" style="width:100%;" type="submit" />
-						<hr class="hr18">
-							<a href="login" style="float:right;font-size:15px;">老用户登录</a>
-							<a href="#" style="float:left;font-size:15px;">忘记密码</a>
-					</form>
-				</div>
-				<div class="copyright"><a href="<%=basePath %>" target="_blank">@小只WEB </a>©用户注册页</div>
-		<!-- </div> -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript">
-
-		</script>
-	</body>
+<!doctype html> 
+<html>
+    <head>
+        <title>小只WEB-用户登录</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <meta http-equiv="Pragma" content="no-cache"> 
+        <meta http-equiv="Cache-Control" content="no-cache"> 
+        <meta http-equiv="Expires" content="0"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            form{
+                width: 85%;
+                margin: auto auto;
+                padding-top: 10%;
+            }
+            body{
+                background:url(images/bg.jpg);
+            }
+            header{
+                width: 100%;
+                height: 50px;
+                background-color: #3fb37e;
+                border-radius: 5px;
+                margin: auto auto;
+                padding: 5px 10px 0px 10px;
+                color: #fff;
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 18px;
+                text-align: center;
+                line-height: 40px;
+            }
+            .content{
+                background: #fff;
+                height:350px;
+                margin-top: 30%;
+                border-radius: 5px;
+            }
+            input[type=submit]{
+                background-color: #3fb37e;
+                border-radius: 5px;
+                width: 100%;
+                height: 50px;
+                border:none;
+                color: #fff;
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 18px;
+                margin-top: 20px;
+            }
+            input[type=text],input[type=password]{
+                border: 1px solid #DCDEE0;
+                display: inline-block;
+                width: 100%;
+                height: 50px;
+                outline: none;
+                border-radius: 3px;
+                font-size: 14px;
+                color: #555555;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+                margin-top: 20px;
+                padding-left: 20px;
+            }
+            footer{
+            	color: #fff;
+            	padding: 20px 0;
+            	text-align:center;
+            }
+            footer>a{
+            	display:inline-block;
+            	width:32%;
+            	color:#3fb37e;
+            }
+            @media (min-width: 1200px){
+                .content{
+                    height:380px;
+                }
+            }
+            @media screen and (orientation : landscape ) and (min-width: 667px) and (max-width: 768px){
+                form{
+                    padding-top: 5%;
+                }
+                .content{
+                    height:350px;
+                    margin-top: 10%;
+                }
+            }
+            @media screen and (min-width: 428px) and (max-width: 667px){
+                form{
+                    padding-top: 4%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+           <div class="row-fluid">
+                <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3  col-xs-12">
+                    <div class="content">
+                        <form action="regist" method="post" autocomplete="on">
+                            <header>小只路由WEB验证系统-注册</header>
+                            <input name="username" placeholder="用户名/邮箱" required="required" type="text" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"/>
+                            <input name="password" placeholder="密码" required="required" type="password" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"/>
+                            <input type="submit" value="注册" />
+                            <footer>
+                                <a href="#">用户协议</a>
+                                <a href="<%=basePath %>">@小只WEB</a>
+                                <a href="javascript:(history.go(-1))">老用户登录</a>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            window.onresize=function(){
+            	var clientheight = window.innerHeight || document.body.clientHeight;
+            	var dom = document.getElementsByClassName("content").item(0);
+            	var cheight = dom.clientHeight;
+            	if (clientheight>cheight) {
+            		dom.style.marginTop=(clientheight-cheight)/2+"px";
+                }
+            }
+        </script>
+    </body>
 </html>
